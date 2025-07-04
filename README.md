@@ -2,11 +2,12 @@
   <img src="assets/QuantumLogo.png" alt="QuantumVault Logo" width="200px"/>
 </p>
 
-<h1 align="center">QuantumVault</h1>
+<h1 align="center">QuantumVault 🔐</h1>
 
 <p align="center">
   A post-quantum cryptography (PQC) tool for secure file encryption and decryption.<br>
-  Built with <a href="https://www.python.org/">Python 3</a> using quantum-resistant algorithms.
+  Built with <a href="https://www.python.org/">Python 3</a> using quantum-resistant algorithms.<br>
+  Created for the CS50P final project, by João Pedro da Silva Ramalho but intended for wider use.
 </p>
 
 <p align="center">
@@ -20,29 +21,25 @@
 ## ✨ Features
 
 - ✅ **Quantum-Resistant Encryption**  
-  Leverages post-quantum cryptographic algorithms to guard your data against future quantum threats.
+  QuantumVault use post-quantum cryptographic algorithms to guard your data against future quantum threats, a hot topic going on right now.
 
 - ⚙️ **Cross-Platform**  
-  Works on all major operating systems. Portable or usage via source code.
 
-- 💻 **Command-Line Interface (CLI)** 
-  Fast and scriptable command-line usage.
+- 💻 **Command-Line Interface (CLI)**  
 
-- 🖼️ **Graphical User Interface (GUI)**
-  User-friendly GUI for frequent uses.
+- 🖼️ **Graphical User Interface (GUI)**  
 
 ---
 
-## Screenshots
-
+## 📸 Screenshots
 
 <p align="center">
-  <img src="" alt="" width="300px"/>
+  <img src="" alt="App Screenshot" width="300px"/>
 </p>
 
 ---
 
-## Roadmap
+## 🛠️ Roadmap
 
 - [ ] Develop the encryption/decryption backend  
 - [ ] Enable file input support  
@@ -51,4 +48,3 @@
 - [ ] Generate Windows executable  
 
 ---
-
