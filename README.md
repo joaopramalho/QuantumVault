@@ -21,13 +21,9 @@
 ## ✨ Features
 
 - ✅ **Quantum-Resistant Encryption**  
-  QuantumVault use post-quantum cryptographic algorithms to guard your data against future quantum threats, a hot topic going on right now.
-
 - ⚙️ **Cross-Platform**  
-
-- 💻 **Command-Line Interface (CLI)**  
-
-- 🖼️ **Graphical User Interface (GUI)**  
+- 💻 **Command-Line Interface**  
+- 🖼️ **Graphical User Interface**  
 
 ---
 
@@ -41,10 +37,7 @@
 
 ## 🛠️ Roadmap
 
-- [ ] Develop the encryption/decryption backend  
-- [ ] Enable file input support  
-- [ ] Implement CLI interface  
-- [ ] Design and integrate a GUI  
+- [ ] Develop the encryption/decryption backend   
 - [ ] Generate Windows executable  
 
 ---
