@@ -9,8 +9,3 @@ def log_message(message = "Teste", step = "cryptography", message_type = "info")
     with open(f"{timestamp}.txt", "a") as file:
         file.write(entry)
         file.close()
-
-def main():
-    log_message("Erro critico!", "Criptografia", "critico")
-
-main()
