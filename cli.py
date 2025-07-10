@@ -1,4 +1,5 @@
 import os
+from utils/logging import log_message
 
 def initCli(args):
     # Encrypt function
@@ -13,6 +14,7 @@ def initCli(args):
             print("Error: File not found")
             return
         print(f"Encrypting {file} with password {password}")
+
 
     # Decriptition function
     elif args[0] == "-d" or args[0] == "--decrypt":
