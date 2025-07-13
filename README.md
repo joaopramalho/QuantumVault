@@ -71,7 +71,6 @@
 
 ## ⚠️ Warning!
 
-Artificial Inteligence was used for the creation of the GUI, a bit of the cryptography, test_qvault.py, repetitive tasks (such as logging) and a bit of the qvaults.py.\n
-The most of the project was made by me.
+Artificial Inteligence was used for the creation of the GUI, a bit of the cryptography, test_qvault.py, repetitive tasks (such as logging) and a bit of the qvaults.py. The most of the project was made by me.
 
 ---
