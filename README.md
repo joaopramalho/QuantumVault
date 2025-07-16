@@ -59,7 +59,6 @@
      python main.py -h
      ```
 
-**Logs** are saved in the `logs` folder inside the project directory.
 ---
 
 ## 🛠️ Roadmap
@@ -71,6 +70,6 @@
 
 ## ⚠️ Warning!
 
-Artificial Inteligence was used for the creation of the GUI, a bit of the cryptography, test_qvault.py, repetitive tasks (such as logging) and a bit of the qvaults.py. The most of the project was made by me.
+Artificial Inteligence was used for the creation of the GUI, test_qvault.py, test_project.py and some repetitive tasks (such as creating text for logs). The part of cryptography, decryptography and qvaults file extension was made by me.
 
 ---
