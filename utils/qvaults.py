@@ -96,13 +96,13 @@ class QVaultFormat:
             with open(file_path, 'rb') as f:
                 magic = f.read(4)
                 if magic != QV_MAGIC:
-                    raise ValueError("Invalid .qvault file: wrong magic bytes")
                     log_message("Invalid .qvault file: wrong magic bytes", "UNPACKING QVAULT FILE", "ERROR")
+                    raise ValueError("Invalid .qvault file: wrong magic bytes") 
                 
                 version = struct.unpack('<B', f.read(1))[0]
                 if version != QV_VERSION:
-                    raise ValueError(f"Unsupported .qvault version: {version}, use a older/newer version of QuantumVault, version not compatible")
                     log_message(f"Unsupported .qvault version: {version}, use a older/newer version of QuantumVault, version not compatible", "UNPACKING QVAULT FILE", "ERROR")
+                    raise ValueError(f"Unsupported .qvault version: {version}, use a older/newer version of QuantumVault, version not compatible")
                 
                 flags = struct.unpack('<B', f.read(1))[0]
                 f.read(2)
@@ -152,11 +152,11 @@ class QVaultFormat:
             with open(file_path, 'rb') as f:
                 magic = f.read(4)
                 if magic != QV_MAGIC:
-                    return None
                     log_message("File is not a real QVault file!", "QVAULT INFO PARSER", "ERROR")
+                    return None
                 
-                version = struct.unpack('<B', f.read(1))[0]
-                flags = struct.unpack('<B', f.read(1))[0]
+                version = struct.unpack('<B', f.read(1))[0] # retorna versao
+                flags = struct.unpack('<B', f.read(1))[0] # retorna flags
                 f.read(2)  # bits reservados
                 
                 header_len, data_len, iv_len, kem_len, pub_len, ext_len = struct.unpack('<IIIIII', f.read(24))

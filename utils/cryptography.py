@@ -4,38 +4,38 @@ from pqcrypto.kem.ml_kem_1024 import generate_keypair, encrypt as kem_encrypt, d
 from utils.logging import log_message
 from .qvaults import QVaultFormat
 
-def padding(data):
+def padding(data): # calcular o padding da data
     pad_len = 16 - len(data) % 16
     return data + bytes([pad_len] * pad_len)
 
-def unpad(data):
+def unpad(data): # unpadar
     pad_len = data[-1]
     
-    if pad_len < 1 or pad_len > 16:
+    if pad_len < 1 or pad_len > 16: # checar pading
         log_message(f"Invalid Padding when unpadding {data}", "CRYPTOGRAPHY UNPADDING", "ERROR")
         raise ValueError("Invalid padding")
     
     log_message(f"Success on unpadding data", "CRYPTOGRAPHY UNPADDING", "SUCESS")
     return data[:-pad_len]
 
-def encryptAES(input_file, aes_key):
+def encryptAES(input_file, aes_key): # encriptar usando aes
     iv = os.urandom(16)
     cipher = AES.new(aes_key, AES.MODE_CBC, iv)
 
     with open(input_file, 'rb') as f:
         plaintext = f.read()
 
-    padded = padding(plaintext)
+    padded = padding(plaintext) # fazer o padding
 
     ciphertext = cipher.encrypt(padded)
     return ciphertext, iv
 
-def encrypt_hybrid(input_file, output_file):
+def encrypt_hybrid(input_file, output_file): # encriptacao hibrida
     try:
         public_key, secret_key = generate_keypair()
-        kem_ciphertext, shared_secret = kem_encrypt(public_key)
+        kem_ciphertext, shared_secret = kem_encrypt(public_key) # encriptar kyber
 
-        aes_key = shared_secret[:32]
+        aes_key = shared_secret[:32] # aes
         ciphertext, iv = encryptAES(input_file, aes_key)
 
         if output_file.endswith('.qvault'):
@@ -84,7 +84,7 @@ def encrypt_hybrid(input_file, output_file):
         print(f"Hybrid encryption failed: {e}")
         log_message(f"Hybrid encryption error: {e}", "HYBRID CRYPTOGRAPHY", "ERROR")
 
-def decrypt_hybrid(input_file, output_file, sec_key_path, kem_cipher_path, iv_path):
+def decrypt_hybrid(input_file, output_file, sec_key_path, kem_cipher_path, iv_path): # decriptacao legado sem .qvault
     try:
         with open(sec_key_path, 'rb') as f:
             secret_key = f.read()
@@ -110,7 +110,7 @@ def decrypt_hybrid(input_file, output_file, sec_key_path, kem_cipher_path, iv_pa
         print(f"Hybrid decryption failed: {e}")
         log_message(f"Hybrid decryption error: {e}", "HYBRID CRYPTOGRAPHY", "ERROR")
 
-def decrypt_hybrid_qvault(input_file, output_file, secret_key_file=None):
+def decrypt_hybrid_qvault(input_file, output_file, secret_key_file=None): # decriptar 
     try:
         encrypted_data, iv, kem_ciphertext, public_key, original_extension = QVaultFormat.unpack_qvault(input_file)
     
