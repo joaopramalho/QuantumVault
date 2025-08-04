@@ -1,0 +1,5 @@
+{
+    "enable_log": "true",
+    "log_dir": "logs",
+    "open_gui_default": "true"
+}
