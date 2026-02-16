@@ -12,9 +12,13 @@ def unpad(data): # unpadar
     pad_len = data[-1]
     
     if pad_len < 1 or pad_len > 16: # checar pading
-        log_message(f"Invalid Padding when unpadding {data}", "CRYPTOGRAPHY UNPADDING", "ERROR")
+        log_message(f"Invalid Padding when unpadding", "CRYPTOGRAPHY UNPADDING", "ERROR")
         raise ValueError("Invalid padding")
     
+    if data[-pad_len:] != bytes([pad_len] * pad_len):
+        log_message(f"Invalid padding bytes", "CRYPTOGRAPHY UNPADDING", "ERROR")
+        raise ValueError("Invalid padding bytes")
+
     log_message(f"Success on unpadding data", "CRYPTOGRAPHY UNPADDING", "SUCESS")
     return data[:-pad_len]
 
@@ -61,8 +65,8 @@ def encrypt_hybrid(input_file, output_file): # encriptacao hibrida
                 log_message(f"Error saving secret key to {secret_key_file}: {e}", "HYBRID CRYPTOGRAPHY", "ERROR")
                 raise
             
-            log_message(f"Hybrid-encrypted {input_file} to {output_file} using .qvault format", "HYBRID CRYPTOGRAPHY", "SUCCESS")
-            log_message(f"Secret key saved separately to {secret_key_file}", "HYBRID CRYPTOGRAPHY", "INFO")
+            log_message(f"Hybrid-encrypted to {output_file}", "HYBRID CRYPTOGRAPHY", "SUCCESS")
+            log_message(f"Secret key saved to {secret_key_file}", "HYBRID CRYPTOGRAPHY", "INFO")
         else:
 
             with open(output_file, 'wb') as out:
